@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\27b6u4w195.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MyBlog.styles.css",
+      "PackagePath": "staticwebassets\\MyBlog.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyBlog.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MyBlog.props",
+      "PackagePath": "build\\MyBlog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MyBlog.props",
+      "PackagePath": "buildMultiTargeting\\MyBlog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MyBlog.props",
+      "PackagePath": "buildTransitive\\MyBlog.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
