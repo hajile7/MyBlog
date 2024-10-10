@@ -2,44 +2,61 @@
 
 <div class="navbar nav-scrollable">
   <nav class="flex-column">
-    @* <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" 
-    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" 
-    aria-label="Toggle navigation"> *@
       <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" 
       aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
-      role="button"><i class="bi bi-chevron-double-right"></i></span>
-    @* </button> *@
-    <div class=" offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      role="button">
+      <i class="bi bi-chevron-double-right desktop-icon"></i>
+      <i class="bi bi-chevron-double-down mobile-icon"></i>
+      </span>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Posts</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+              Home
+            </NavLink>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Recent
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="counter">Counter</a></li>
+              <li><a class="dropdown-item" href="weather">Weather</a></li>
+              <li><a class="dropdown-item" href="#">Placeholder</a></li>
             </ul>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Topics
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Subtopic 1</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="weather">Weather</a></li>
+                  <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Subtopic 2</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                  <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <NavLink class="nav-link" href="counter">
+              Archived
+            </NavLink>
+          </li>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -51,8 +68,8 @@
         if (firstRender)
         {
           await JS.InvokeVoidAsync("initializeBootstrapComponents");
-          Console.WriteLine("I was called!");
+          await JS.InvokeVoidAsync("initializeNavSubMenu");
+          await JS.InvokeVoidAsync("addResizeEventForOffcanvas", "offcanvasNavbar");
         }
     }
-
 }

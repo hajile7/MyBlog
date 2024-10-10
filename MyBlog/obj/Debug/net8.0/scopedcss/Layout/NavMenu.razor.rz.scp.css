@@ -7,15 +7,6 @@
     font-size: 1.1rem;
 }
 
-.bi[b-xh24n2dm4u] {
-    display: inline-block;
-    position: relative;
-    margin-left: 2px;
-    width: 1.25rem;
-    height: 1.25rem;
-    color: white;
-}
-
 .nav-item[b-xh24n2dm4u] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
@@ -49,20 +40,85 @@
 }
 
 @media (min-width: 641px) {
-
-    .collapse[b-xh24n2dm4u] {
-        display: block;
-    }
     
     .nav-scrollable[b-xh24n2dm4u] {
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+
+    .offcanvas[b-xh24n2dm4u] {
+        visibility: visible !important;
+        background-color: rgb(56, 56, 56);
+        width: 250px;
+    }
 }
 
 /* My Classes */
 
+.mobile-icon[b-xh24n2dm4u] {
+    display: none;
+}
+
+.desktop-icon[b-xh24n2dm4u] {
+    display: inline-block;
+}
+
 .offcanvas[b-xh24n2dm4u] {
     visibility: visible !important;
-    background-color: darkgray;
+    background-color: rgb(56, 56, 56);
+}
+
+.offcanvas-title[b-xh24n2dm4u] {
+    text-decoration: underline;
+}
+
+.offcanvas-title[b-xh24n2dm4u] {
+    color: white;
+}
+
+.dropdown-item:focus[b-xh24n2dm4u] {
+    background-color: transparent;
+}
+
+.dropdown-submenu .dropdown-menu[b-xh24n2dm4u] {
+    display: none;
+    left: 100%; 
+    top: 0;
+}
+
+.dropdown-menu[b-xh24n2dm4u] {
+    background-color: transparent;
+    border: none;
+}
+
+.bi[b-xh24n2dm4u] {
+    position: relative;
+    margin-left: 2px;
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: .7;
+    color: white;
+}
+
+.bi:hover[b-xh24n2dm4u]{
+    opacity: 1;
+}
+
+@media (max-width: 640.98px) {
+    .desktop-icon[b-xh24n2dm4u] {
+        display: none;
+    }
+    .mobile-icon[b-xh24n2dm4u] {
+        display: inline-block;
+    }
+    .navbar[b-xh24n2dm4u] {
+        justify-content: center;
+    }
+    .offcanvas-header[b-xh24n2dm4u] {
+        padding-bottom: 0;
+    }
+    .offcanvas-body[b-xh24n2dm4u] {
+        padding-top: 0;
+    }
+    
 }
