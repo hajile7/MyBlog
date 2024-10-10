@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ELRyoNXW9XI7lLBVIJH0pGeJHOif9x3BGl4gOBusbwU=",
+  "Hash": "PGSvS6920vLkGznU35pZZ0+/Vy5fuDpauLtDUuzM8lU=",
   "Source": "MyBlog",
   "BasePath": "/",
   "Mode": "Root",
@@ -7938,6 +7938,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\site.js",
+      "SourceId": "MyBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\site.js"
     }
   ]
 }

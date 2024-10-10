@@ -615,6 +615,7 @@ C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.AssemblyI
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.AssemblyInfo.cs
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.csproj.CoreCompileInputs.cache
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.sourcelink.json
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
