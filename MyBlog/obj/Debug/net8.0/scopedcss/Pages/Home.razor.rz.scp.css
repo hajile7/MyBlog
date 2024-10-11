@@ -1,0 +1,16 @@
+.mobile-msg[b-5t0s357vv2] {
+    display: none;
+}
+
+.desktop-msg[b-5t0s357vv2] {
+    display: inline;
+}
+
+@media (max-width: 640.98px) {
+    .mobile-msg[b-5t0s357vv2] {
+        display: inline;
+    }
+    .desktop-msg[b-5t0s357vv2] {
+        display: none;
+    }
+}

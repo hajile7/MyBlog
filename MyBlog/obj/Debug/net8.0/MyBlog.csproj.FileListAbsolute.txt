@@ -1030,3 +1030,4 @@ C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.dll
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\refint\MyBlog.dll
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\MyBlog.pdb
 C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\ref\MyBlog.dll
+C:\Users\Eli\source\repos\My stuff\Blog\MyBlog\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css

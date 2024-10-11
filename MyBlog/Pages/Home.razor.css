@@ -1,0 +1,16 @@
+.mobile-msg {
+    display: none;
+}
+
+.desktop-msg {
+    display: inline;
+}
+
+@media (max-width: 640.98px) {
+    .mobile-msg {
+        display: inline;
+    }
+    .desktop-msg {
+        display: none;
+    }
+}

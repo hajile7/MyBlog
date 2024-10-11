@@ -66,6 +66,7 @@
 .offcanvas {
     visibility: visible !important;
     background-color: rgb(56, 56, 56);
+    border-right: 1px solid rgba(211, 211, 211, .4)
 }
 
 .offcanvas-title {

@@ -3,15 +3,20 @@
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(180deg, rgb(0, 0, 0) 0%, #01071d 70%);
+    min-height: 100vh;
 }
 
 .content[b-77z6mrln1l] {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .wrapper[b-77z6mrln1l] {
-    width: 70%;
+    width: 50%;
     margin: auto;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main[b-77z6mrln1l] {
@@ -23,9 +28,9 @@ main[b-77z6mrln1l] {
 }
 
 .top-row[b-77z6mrln1l] {
-    background-color: rgb(35, 35, 35);
-    border-bottom: 1px solid rgb(34, 34, 34);
-    justify-content: flex-end;
+    background-color: rgb(56, 56, 56);
+    border-bottom: 1px solid rgba(211, 211, 211, .4);
+    justify-content: center;
     height: 3.5rem;
     display: flex;
     align-items: center;
@@ -35,10 +40,10 @@ main[b-77z6mrln1l] {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
-    }
-
-    .top-row[b-77z6mrln1l]  a:hover, .top-row[b-77z6mrln1l]  .btn-link:hover {
-        text-decoration: underline;
+        color: rgb(245, 245, 245);
+        :hover{
+            text-decoration: none;
+        }
     }
 
     .top-row[b-77z6mrln1l]  a:first-child {
@@ -48,7 +53,7 @@ main[b-77z6mrln1l] {
 
 @media (max-width: 640.98px) {
     .top-row[b-77z6mrln1l] {
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .top-row[b-77z6mrln1l]  a, .top-row[b-77z6mrln1l]  .btn-link {
@@ -70,6 +75,7 @@ main[b-77z6mrln1l] {
         height: 100vh;
         position: sticky;
         top: 0;
+        z-index: 2;
     }
 
     .top-row[b-77z6mrln1l] {
@@ -92,5 +98,5 @@ main[b-77z6mrln1l] {
 }
 
 .universalBackground[b-77z6mrln1l] {
-    background-color: darkgray;
+    background-color: rgb(245, 245, 245);
 }
