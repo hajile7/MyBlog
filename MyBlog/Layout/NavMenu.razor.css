@@ -12,14 +12,6 @@
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
     .nav-item ::deep a {
         color: #d7d7d7;
         border-radius: 4px;
@@ -55,6 +47,14 @@
 
 /* My Classes */
 
+.nav-link {
+    padding-left: 10px;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
+
 .mobile-icon {
     display: none;
 }
@@ -69,11 +69,12 @@
 }
 
 .offcanvas-title {
-    text-decoration: underline;
+    padding-left: 18px;
+    color: white;
 }
 
-.offcanvas-title {
-    color: white;
+.offcanvas-header {
+    border-bottom: 1px solid rgba(211, 211, 211, .4);
 }
 
 .dropdown-item:focus {
@@ -82,8 +83,10 @@
 
 .dropdown-submenu .dropdown-menu {
     display: none;
-    left: 100%; 
-    top: 0;
+}
+
+.dropdown-item {
+    font-size: .75rem;
 }
 
 .dropdown-menu {
@@ -114,9 +117,7 @@
     .navbar {
         justify-content: center;
     }
-    .offcanvas-header {
-        padding-bottom: 0;
-    }
+    
     .offcanvas-body {
         padding-top: 0;
     }

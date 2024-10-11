@@ -12,14 +12,6 @@
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type[b-xh24n2dm4u] {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type[b-xh24n2dm4u] {
-        padding-bottom: 1rem;
-    }
-
     .nav-item[b-xh24n2dm4u]  a {
         color: #d7d7d7;
         border-radius: 4px;
@@ -55,6 +47,14 @@
 
 /* My Classes */
 
+.nav-link[b-xh24n2dm4u] {
+    padding-left: 10px;
+}
+
+.btn-close:focus[b-xh24n2dm4u] {
+    box-shadow: none;
+}
+
 .mobile-icon[b-xh24n2dm4u] {
     display: none;
 }
@@ -69,11 +69,12 @@
 }
 
 .offcanvas-title[b-xh24n2dm4u] {
-    text-decoration: underline;
+    padding-left: 18px;
+    color: white;
 }
 
-.offcanvas-title[b-xh24n2dm4u] {
-    color: white;
+.offcanvas-header[b-xh24n2dm4u] {
+    border-bottom: 1px solid rgba(211, 211, 211, .4);
 }
 
 .dropdown-item:focus[b-xh24n2dm4u] {
@@ -82,8 +83,10 @@
 
 .dropdown-submenu .dropdown-menu[b-xh24n2dm4u] {
     display: none;
-    left: 100%; 
-    top: 0;
+}
+
+.dropdown-item[b-xh24n2dm4u] {
+    font-size: .75rem;
 }
 
 .dropdown-menu[b-xh24n2dm4u] {
@@ -114,9 +117,7 @@
     .navbar[b-xh24n2dm4u] {
         justify-content: center;
     }
-    .offcanvas-header[b-xh24n2dm4u] {
-        padding-bottom: 0;
-    }
+    
     .offcanvas-body[b-xh24n2dm4u] {
         padding-top: 0;
     }
