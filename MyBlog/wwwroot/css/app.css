@@ -98,11 +98,33 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
-code {
-    color: #c02d76;
-}
+
 
 /* My Universal Stylings */
 li {
     padding-bottom: .5%;
+}
+
+.myHeaders {
+    p {
+        font-size: .75rem;
+        font-weight: 600;
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+}
+
+code {
+    color: #c02d76;
+    padding: 1.5%;
+    word-break: normal;
+}
+
+.codeContainer {
+    margin: 2rem;
+    padding: 2%;
+    border: inset;
+    background-color: lightgrey;
 }
