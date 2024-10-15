@@ -228,6 +228,28 @@ main[b-77z6mrln1l] {
     }
     
 }
+/* /Pages/Archives.razor.rz.scp.css */
+.archiveLink[b-kcuogftc82] {
+    color: black;
+}
+
+.archiveLink:hover[b-kcuogftc82] {
+    color: #0071c1;
+}
+
+.archiveHeader[b-kcuogftc82] {
+    font-size: .5rem;
+}
+
+h4[b-kcuogftc82] {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    margin-top: 1%
+}
+
+hr[b-kcuogftc82] {
+    margin-top: 0;
+}
 /* /Pages/Home.razor.rz.scp.css */
 .mobile-msg[b-5t0s357vv2] {
     display: none;
