@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\MyBlog.styles.css"
     },
     {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\PrincipledProgrammerImg.png",
+      "PackagePath": "staticwebassets\\PrincipledProgrammerImg.png"
+    },
+    {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

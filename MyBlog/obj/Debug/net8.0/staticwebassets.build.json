@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bqBRGrdwM0IPIWn34b+a7dpNaZkEehRh9wvO/kIttIU=",
+  "Hash": "N/6IXz8z9B4/RQrXfxXJHERopinL3zNKROmGcqsSdt8=",
   "Source": "MyBlog",
   "BasePath": "/",
   "Mode": "Root",
@@ -7919,6 +7919,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\PrincipledProgrammerImg.png",
+      "SourceId": "MyBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "PrincipledProgrammerImg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PrincipledProgrammerImg.png"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\site.js",

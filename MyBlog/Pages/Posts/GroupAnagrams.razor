@@ -26,7 +26,7 @@
 
     <p>
         Suffice to say, I was a bit rusty in my C# outside of bog-standard ASP.NET Core Web APIs. Additionally, not having come from a 'standard' education
-        in computer science, I've always craved some not-so-superficial knowledge in the realm of DSA. While some people curse LeetCode and declare it a
+        in computer science, I've always craved some not-so-superficial knowledge in the realm of DSA. While some people curse LeetCode and maintain it's a
         waste of time in lieu of project-based learning, I would respectfully disagree; at least, within the context of someone such as myself, who is widely
         self-taught. Now, don't misconstrue that as me advocating for grinding LeetCode day in, day out. A little here and there should suffice just fine
         for anyone sufficiently interested in learning DSA through the lens of LeetCode.
@@ -37,20 +37,113 @@
         currated by NeetCode's creator (an ex-Amazon, ex-Googler gone Leetcode grinder). I find that following this roadmap (150 problems) takes away
         a lot of the guesswork that comes along with purverying LeetCode on your own. If possible, I typically do a problem a day, which I know is not always
         possible for everyone. That said, just doing one problem a day has already increased my confidence in solving these types of problems and in using 
-        some data structures I was previously less familiar with. 
+        some data structures I was previously less familiar with/confident in using. 
     </p>
     <p>
-        Soon into this LeetCode journey, I ran across a problem that really changed my outlook on LeetCode questions and my general problem solving strategies 
-        (and hash maps!). That problem was <a href="https://leetcode.com/problems/group-anagrams/description/">Group Anagrams</a>. The problem statement is 
-        straight-forward enough: given an array of strings, group all anagrams together. The result can be returned in any order. So, if the input were: <br> 
+        Soon into this LeetCode journey, I ran across a problem that really changed my outlook on LeetCode questions and my problem solving strategies in general 
+        (not to mention hash maps). Not only that, but this problem really piqued and solidified my interest in actually coming to learn and understand DSA.
+        That problem was <a href="https://leetcode.com/problems/group-anagrams/description/">Group Anagrams</a>. The problem statement is straight-forward
+        enough: given an array of strings, group all anagrams together. The result can be returned in any order. So, if the input were: <br> 
         <div class="codeContainer">
-            <code>
-                strs = ["eat","tea","tan","ate","nat","bat"];
-            </code>
+            <pre>strs = ["eat","tea","tan","ate","nat","bat"];</pre>
         </div>
-        We would want to return:
+        <p>We would want to return:</p>
         <div class="codeContainer">
-            <code>[["bat"],["nat","tan"],["ate","eat","tea"]];</code>
+            <pre>[["bat"],["nat","tan"],["ate","eat","tea"]];</pre>
         </div>
+        At the time, I wasn't sure how to approach this problem. I had already solved the problem's precursor: 
+        <a href="https://leetcode.com/problems/valid-anagram/description/">valid anagram</a>, which had given me a bit of trouble on its own. After an hour+ of
+        struggling, I did manage to come to a solution. It wasn't pretty. I used my solution to valid anagram as a helper function in the solution, which ended
+        up at a monstrous 140+ lines of code using nothing more sophisticated than basic strings. Regardless, I was pretty proud for having solved the problem
+        myself.
+    </p>
+    <p>
+        Like any good developer keen on improving, I soon after started to look into others' solutions to see what could've made this problem easier and more efficient.
+        I checked out NeetCode's solution and was shocked to see his solution was only 20 lines of code. I eagerly watched a walkthrough of the solution and was
+        truly in awe after seeing how his solution worked and the problem-solving strategies that he employed to get there. This was the moment I realized just how
+        powerful hash maps could be when employed with some forethought. 
+    </p>
+    <p>
+        For those who don't know, hash maps store key-value-pairs. You can look up values stored in a hash map via their key. Keys must be unique and can consist of
+        any primitive data type, strings, enums, custom classes/structs (though these types of keys take some extra work to get working properly, which I will not dive
+        into here), tuples, or nullable types (in cases where the dictionary is setup to handle nulls). While knowing what you <i>can</i> use as a dictionary key is nice,
+        the more important thing to keep in mind is that dictionary keys should be <i>immutable</i>. This is because the implementation of dictionaries in C# uses hash tables
+        under the hood. Mutable keys would lead to inconsistencies in lookups if a key's state changed post being added to the dictionary. Dictionary values, on the other 
+        hand, are much more flexible than their key counterparts. I'll stop here before we get too into the weeds, though I may well do a deep dive on dictionaries in the future.  
+        Getting back on topic, the solution to Group Anagrams first instantiates an empty dictionary:
+        <div class="codeContainer">
+            <pre>var ans = new Dictionary&#60;string, List&#60;string>>();</pre>
+        </div>
+        The plan with this dictionary is to store some key that represents a group of anagrams. We'll iterate over the input array and add anagrams to their corresponing
+        key if it's already contained in the dictionary. If not, we'll add that anagram's key to our dictionary along with its matching string as a value. The clever part 
+        lies in forming an anagram group's key. When we break anagrams down into their simplest parts, we notice that all anagram groups share the same 'character-map'. 
+        That is, all anagrams contain: 
+    </p>
+        <ul>
+            <li>The same characters</li>
+            <li>The same frequency of said characters</li>
+        </ul>
+    <p>
+        To get said character-map, we simply need a way to iterate through any given string and keep note of which characters it contains and in which frequencies. An array here
+        would be perfect. We can instantiate an empty integer array of length 26 and keep track of characters' frequency by incrementing the array[character's-index] each time
+        we encounter the character in the string. We can accomplish this task by using the character's ASCII value and subtracting a's ASCII value from that. In practice, this
+        gives us a system where, within any given string, the character 'a' = 0, 'b' = 1, 'c' = 2, etc... We then use this numbering system to create our character map. This may
+        be a bit easier to visualize in the actual code:
+        <div class="codeContainer">
+<pre>
+foreach (string s in strs)
+{                                       
+    var characterMap = new int[26];                                    
+    foreach (char c in s)
+    {                                       
+        characterMap[c - 'a']++;                   
+    }
+    string key = string.Join(',', characterMap);                    
+    if (!ans.ContainsKey(key))
+    {
+        ans[key] = new List&#60string>();                          
+    }
+    ans[key].Add(s);                                            
+}
+</pre>
+        </div>
+        <p>One small tidbit I've neglected to talk about is our use of string.Join(), which is used here to avoid the earlier problem of mutablility I mentioned. Since our character-map is going
+        to be used as a key to store all of its matching anagrams, we need to switch it from an int array (mutable) to a string (immutable) to prevent issues with the underlying hash table.
+        Once we've iterated through the entire input array, we simply return our dictionary's values as a list, which will contain all group anagrams within the given array:</p>
+        <div class="codeContainer">
+            <pre>return new List&#60;List&#60;string>>(ans.Values);</pre>
+        </div>
+    </p>
+    <p>And just like that, with a few lines of code, we've solved a relatively complex problem (well, perhaps not in the scope of LeetCode as whole) using a dictionary in conjunction
+    with a clever implementation of storing an anargram's character map. Altogether, we're left with:</p>
+    <div class="codeContainer">
+<pre>
+public IList&#60;IList&#60;string>> GroupAnagrams(string[] strs) {
+    var ans = new Dictionary&#60;string, List&#60;string>>();              
+    foreach (string s in strs)
+    {                                       
+        var characterMap = new int[26];                                    
+        foreach (char c in s)
+        {                                       
+            characterMap[c - 'a']++;                   
+        }
+        string key = string.Join(',', characterMap);                    
+        if (!ans.ContainsKey(key))
+        {
+            ans[key] = new List&#60;string>();                          
+        }
+        ans[key].Add(s);                                            
+    }
+    return new List&#60;IList&#60;string>>(ans.Values);     
+}
+</pre>
+    </div>
+    <p>
+        While not overwhelmingly complex, I found this solution oddly satisfying. Understanding the underlying logic makes solving many hash map based LeetCode problems (there's a lot of them!) 
+        significantly easier to deconstruct and solve. A nice follow-up to this question is <a href="https://leetcode.com/problems/top-k-frequent-elements/description/">Top K Frequent Elements</a>,
+        which felt like a breeze after having taken the time to understand the above solution. If you're anything like me, hopefully seeing this problem deconstructed made hash maps 'click' for you.
+    </p>
+    <p>
+        Until next time; happy coding!
     </p>
 </div>

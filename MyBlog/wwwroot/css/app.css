@@ -116,15 +116,34 @@ li {
     }
 }
 
-code {
-    color: #c02d76;
-    padding: 1.5%;
-    word-break: normal;
-}
-
 .codeContainer {
-    margin: 2rem;
+    margin: 1.5rem;
     padding: 2%;
     border: inset;
-    background-color: lightgrey;
+    background-color: rgb(190, 190, 190);
+    box-sizing: border-box;
+}
+
+.codeContainer pre {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    font-family: monospace;
+    color: #c02d76;
+}
+
+@media (max-width: 640.98px) {
+    .codeContainer {
+        margin: 0;
+        margin-bottom: 16px;
+        width: 100%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    .codeContainer {
+        scrollbar-width: none;
+    }
+    .codeContainer pre::-webkit-scrollbar {
+        display: none;
+    }
 }
