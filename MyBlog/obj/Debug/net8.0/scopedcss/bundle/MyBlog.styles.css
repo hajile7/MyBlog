@@ -222,10 +222,13 @@ main[b-77z6mrln1l] {
     .navbar[b-xh24n2dm4u] {
         justify-content: center;
     }
-    
     .offcanvas-body[b-xh24n2dm4u] {
         padding-top: 0;
     }
+    .offcanvas[b-xh24n2dm4u] {
+        height: 45%;
+    }
+
     
 }
 /* /Pages/Archives.razor.rz.scp.css */
