@@ -13,8 +13,12 @@
       "PackagePath": "staticwebassets\\MyBlog.styles.css"
     },
     {
-      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\PrincipledProgrammerImg.png",
-      "PackagePath": "staticwebassets\\PrincipledProgrammerImg.png"
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\Images\\favicon.png",
+      "PackagePath": "staticwebassets\\Images\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\Images\\icon-192.png",
+      "PackagePath": "staticwebassets\\Images\\icon-192.png"
     },
     {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\app.css",
@@ -27,14 +31,6 @@
     {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
-      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\favicon.png",
-      "PackagePath": "staticwebassets\\favicon.png"
-    },
-    {
-      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\icon-192.png",
-      "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\wwwroot\\index.html",

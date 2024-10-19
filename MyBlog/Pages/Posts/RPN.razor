@@ -1,0 +1,216 @@
+@page "/RPN"
+
+<PageTitle>A Quick Solution to RPN</PageTitle>
+
+<div class="myHeaders">
+    <h3>A Quick Solution to Reverse Polish Notation (RPN)</h3>
+    <p>Oct. 18, 2024</p>
+</div>
+
+<hr>
+
+<div>
+    <p>
+        Yesterday, for the first time since beginning my LeetCode journey, I crafted a solution in the 100th percentile for runtime. As you could imagine, I was pretty stoked
+        to have come up with what appeared to be about as good a solution as you could conjure up for the problem. The problem I was tackling was
+        <a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/description/">Evaluate Reverse Polish Notation</a>. Before diving into the solution, lets first
+        back up a bit... I mean, what even <i>is</i> reverse polish notation?
+    </p>
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>, also known as postfix notation, is a mathematical notation in which
+        operators follow their operands instead of preceding them. In postfix notation, the following equation:
+        <div class="codeContainer">
+            <pre>(4 + 8) / (1 + 3)</pre>
+        </div>
+        Would instead look like this:
+        <div class="codeContainer">
+            <pre>4 8 + 1 3 + /</pre>
+        </div>
+        Similiarly, this equation:
+        <div class="codeContainer">
+            <pre>28 / (6 + 2 * 4)</pre>
+        </div>
+        Would look like this:
+        <div class="codeContainer">
+            <pre>28 6 2 4 * + /</pre>
+        </div>
+        "Interesting", I thought to myself yesterday as I briefly read wikipedia's article on the concept. This was news to me. I've been learning about and working with stacks
+        for the last few days and was pleasantly surprised to read that postfix notation plays very nice with stacks, given their left-to-right nature. For those unfamiliar with
+        stacks, they're easiest to think about in relation to a real life 'stack' of something. I quite like the analogy to a literal stack of plates. Imagine, if you would, a
+        stack of plates in the kitchen. If you add a plate to this stack, you (naturally) place the plate atop the others. Similiarly, if you remove a plate from the stack, you
+        remove the plate at the top of the stack. 
+    </p>
+    <p>
+        This behavior, in which both the last plate (or more abstractly, <i>item</i>) added or removed from the stack was done so from the 'top' is known as last-in, first-out
+        behavior (LIFO). When working with a stack in code, you must abide by this same rule: whenever adding or removing an item, it must be done <i>from the top</i>. This means
+        that, when working with a stack, you will not be able to grab items by their index, as you would be able to with an array or a list. The upside? The action of adding, removing
+        (known as 'popping'), or 'peeking' (simply viewing the top item of a stack) are constant-time operations. As with my last post, I'll stop here before diving too deeply into
+        the weeds.
+    </p>
+    <p>
+        Getting back to the problem, we're given the following statement: given an array of strings, tokens, that always represents a <b>valid</b> arithmetic
+        expression in Reverse Polish Notation, we must evaluate and return the result of the expression as an integer. It's further stated that we'll only need to deal with
+        addition, subtraction, multiplication, and division, that there will be no division by 0, and, finally, that division between any two integers will always truncate
+        toward zero. Great. Now we can jump into the code.
+    </p>
+    <p>
+        In my solution, I figured I may as well first take care of the edge case in which we're only given one string (since we know the expressions provided will only be valid,
+        it's fair to assume arrays of length 1 simply contain a number in its string form):
+        <div class="codeContainer">
+<pre>
+if (tokens.Length == 1)
+{
+    return int.Parse(tokens[0]);
+}
+</pre>
+        </div>
+        Lets go ahead and instantiate an empty stack as well as an integer variable, result, to house our eventual answer:
+        <div class="codeContainer">
+<pre>
+Stack&#60string> stack = new Stack&#60string>();
+int result = 0;
+</pre>
+        </div>
+        This is where my solution gets a bit 'overengineered'. Due to some previous attempts, I was mistakenly (for some inexplicable reason) stuck in a mindset where I felt I
+        <i>needed</i> to be parsing these strings into either an integer or well... an operator? Truthfully, I wasn't too sure how to handle parsing an operator given to us as a
+        string. So what did I do? That's right! I used a dictionary to skirt the issue. I had briefly mentioned in <a href="Getting-Interested-in-DSA">Getting Interested in DSA</a>
+        that dictionary values are much more flexibile than their key counterparts. So flexibile, in fact, that dictionary values can even be functions. After some head scratching, 
+        I ended up with the following:
+        <div class="codeContainer">
+<pre>
+Dictionary&#60string, Func&#60int, int, int>> operations = new Dictionary&#60string, Func&#60int, int, int>>()
+{
+    { "+", (a, b) => a + b },
+    { "-", (a, b) => a - b },
+    { "*", (a, b) => a * b },
+    { "/", (a, b) => a / b }
+};
+</pre>
+        </div>
+        Now I know what some of you more experienced developers are thinking: <i>that is abosolutely unnecesary!</i> You would be right; however, at the time, I was stuck in the
+        aforementioned ridiculous paradigm of <i>needing</i> to parse these strings. We'll get to what I <i>should</i> have done shortly. For now, just stick with me.
+    </p>
+    <p>
+        At this point, we've got about all we need. A stack, a place to store our result, and the operations dictionary to help us parse string operators. Now we just need to 
+        iterate through our input and apply some basic logic to calculate our result:
+        <div class="codeContainer">
+<pre>
+for (int i = 0; i &#60 tokens.Length; i++)
+{
+    if (!operations.ContainsKey(tokens[i]))
+    {
+        stack.Push(tokens[i]);
+    }
+    else
+    {
+        int num1 = int.Parse(stack.Pop());
+        int num2 = int.Parse(stack.Pop());
+        string strOperator = tokens[i];
+        if (operations.TryGetValue(strOperator, out Func&#60int, int, int> operation))
+        {
+            result = operation(num2, num1);
+            stack.Push(result.ToString());
+        }
+    }
+}
+</pre>
+        </div>
+        So, what are we really doing here? Well, we first check to see if the current string we're looking at is contained in the 'operations' dictionary. If it is not, we simply
+        push it onto our stack, as this must mean it's a number. In this case the current string <i>is</i> contained in our dictionary, we know we've hit an operator. Given what
+        we know about postfix notation, and that all inputs must be valid, it's safe to assume that there are two numbers atop our stack. We pop (or 'remove', if you prefer the
+        earlier plate analogy) the top two strings in our stack and parse them as integers. We then grab the string we're currently looking at (tokens[i]) and save it in the 
+        strOperator variable. The syntax following this part may look a bit funny if you haven't seen it before, but .TryGetValue() is simply a dictionary method which safely attempts
+        receiving the dictionary's value at a given key. If the key does not exist, the method will return the default of the value type; otherwise, it will return the value it received 
+        in its 'out' parameter (in this case, 'operation', the function in our dictionary corresponding to the string operator we're looking at). 
+    </p>
+    <p>
+        We know that the input/output will always be 'good' here, given the problem statement and constraints. Now that we have the accompanying function, we simply evaluate the 
+        expression (operation(num2, num1)) and push it to our stack. To those paying attention: yes, the variable <i>result</i> in this solution is actually superflous. We could instead
+        just push the result of the operation directly to the stack without first saving it to a variable. Then, once we've iterated through our entire input array, simply return
+        stack.Pop() or stack.Peek() (both of which accomplish the same task in constant time). Instead, as I had been at this problem for some time, I opted to keep result and simply
+        return it once we'd iterated through the entire input array:
+        <div class="codeContainer">
+            <pre>return result;</pre>
+        </div>
+        Finally, putting the whole solution together, we end with:
+        <div class="codeContainer">
+<pre>
+public int EvalRPN(string[] tokens)
+{
+    if (tokens.Length == 1)
+    {
+        return int.Parse(tokens[0]);
+    }
+
+    Stack&#60string> stack = new Stack&#60string>();
+    int result = 0;
+
+    Dictionary&#60string, Func&#60int, int, int>> operations = new Dictionary&#60string, Func&#60int, int, int>>()
+    {
+        { "+", (a, b) => a + b },
+        { "-", (a, b) => a - b },
+        { "*", (a, b) => a * b },
+        { "/", (a, b) => a / b }
+    };
+
+    for (int i = 0; i &#60 tokens.Length; i++)
+    {
+        if (!operations.ContainsKey(tokens[i]))
+        {
+            stack.Push(tokens[i]);
+        }
+        else
+        {
+            int num1 = int.Parse(stack.Pop());
+            int num2 = int.Parse(stack.Pop());
+            string strOperator = tokens[i];
+            if (operations.TryGetValue(strOperator, out Func&#60int, int, int> operation))
+            {
+                result = operation(num2, num1);
+                stack.Push(result.ToString());
+            }
+        }
+    }
+
+    return result;
+
+}
+</pre>
+        </div>
+        To my utter delight, this solution was in the 100th percentile for runtime. Or, as a certain someone might say, <i>blazingly fast.</i> At this point, I was quite excited
+        to view NeetCode's solution, as I figured maybe, <i>just maybe,</i> I would for once have crafted a faster solution. Queue the disappointment (but not really, I was still
+        pretty amped with my solution). Remember earlier when I mentioned that I had slighly overengineered the solution? That I was stuck in a ridiculous paradigm of needing to
+        parse each string in the input? Take a look at NeetCode's solution (another 100th percentile solution... ever so slightly faster than mine):
+        <div class="codeContainer">
+<pre>
+public int EvalRPN(string[] tokens) {
+        Stack&#60int> stack = new Stack&#60int>();
+        foreach (string c in tokens) {
+            if (c == "+") {
+                stack.Push(stack.Pop() + stack.Pop());
+            } else if (c == "-") {
+                int a = stack.Pop();
+                int b = stack.Pop();
+                stack.Push(b - a);
+            } else if (c == "*") {
+                stack.Push(stack.Pop() * stack.Pop());
+            } else if (c == "/") {
+                int a = stack.Pop();
+                int b = stack.Pop();
+                stack.Push((int) ((double) b / a));
+            } else {
+                stack.Push(int.Parse(c));
+            }
+        }
+        return stack.Pop();
+    }
+</pre>
+        </div>
+        Hopefully the 'overengineering' part is now pretty obvious. That whole operations dictionary can be replaced by just a few simple if/else if statements. As a huge proponent
+        of Occam's razor, I think it should go without saying: NeetCode's solution is just better in this case. Not only in runtime, but also in its logic. As software
+        developers, at least, in my opinion, we should always (well, <i>almost</i> always) aim for the simplest possilbe solution to a problem. 
+    </p>
+    <p>
+        I will leave you all with that. Until next time, happy coding!
+    </p>
+</div>
