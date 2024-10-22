@@ -1,0 +1,236 @@
+@page "/A-Shallow-Dive-Into-Recursion"
+
+<PageTitle>A Shallow Dive Into Recursion</PageTitle>
+
+<div class="myHeaders">
+    <h3>A Shallow Dive Into Recursion</h3>
+    <p>Oct. 22, 2024</p>
+</div>
+
+<hr>
+
+<div>
+    <p>
+        As I've delved deeper into learning computer science and programming, I have noticed a pretty common theme in which people studying the topic
+        appear to regularly get hung up on the subject of recursion. From what I've gathered, it's often a bit of a sore spot for university students
+        and self-taught developers alike. I, admittedly, was in this camp for some time. Recursion can be a bit tricky to wrap your head around, especially the
+        first time you come across it. I wanted to write this post to not only solidify my existing knowledge on recursion, but hopefully to shed some
+        light on the topic for any of those who may be struggling to understand the concept.
+    </p>
+    <br>
+    <p>
+        Lets start with a few definitions to make sure we're all on the same page. A quick google search of the term recursion will return the following
+        definition:
+    </p>
+    <br>
+    <p>
+        <i>The repeated application of a recursive procedure or defintion.</i>
+    </p>
+    <br>
+    <p>
+        If you're anything like me, that definition probably doesn't do a whole lot for you. Here's another (unofficial) definition that I find more
+        illuminating:
+    </p>
+    <br>
+    <p>
+        <i>A situation where you do something, and, depending on the result of said something, you may do it again.</i>
+    </p>
+    <br>
+    <p>
+        That's... making more sense now. At least, I hope it is. Since the primary focus of this blog is programming and computer science, lets add one more
+        definition that's a bit narrower in scope:
+    </p>
+    <br>
+    <p>
+        <i>Recursion occurs when a function calls itself.</i>
+    </p>
+    <br>
+    <p>
+        "Okay, great! But what <i>is</i> it? What's a use case?" You may be thinking to yourself, just as I was when learning recursion for the first time.
+        We'll get to examples and unpacking what recursion looks like in practice shortly. I think a bit of context might first help set the stage. Recursion 
+        does not have its roots in computer science. Recursion actually stems from mathematics and logic. One very common example of early uses of recursion is Leonardo of Pisa's
+        famed Fibonacci sequence, described as:
+    </p>
+    <br>
+    <p style="text-align: center;">
+        <b>F(n) = F(n - 1) + F(n - 2)</b>
+    </p>
+    <br>
+    <p>
+        In layman's terms, a number from this sequence (a Fibonacci number) can be calculated by summing the two previous numbers in the sequence. For context, here's the beginning of the
+        Fibonnaci sequence:
+    </p>
+    <br>
+    <p style="text-align: center;">
+        <b>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</b>
+    </p>
+    <br>
+    <p>
+        Since we're more interested in computer science, here's how we would write a recursive C# function to find the <span class="inline-code">nth</span> 
+        number in the Fibonacci sequence:
+    </p>
+    <div class="codeContainer">
+<pre>
+static int Fibonacci(int n)
+{
+    if (n &#60= 1) 
+    {
+        return n;
+    }
+    else
+    {
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+}
+</pre>
+    </div>
+    <p>
+        A couple crucial things to notice here: (1) the function calls <i>itself</i> and (2) these calls to itself will occur infinitely until the 'if'
+        statement is entered. The 'else' statement here is where the recursion actually happens; it's where the function actually calls itself. 
+        The above 'if' statement is what's known as the 'base case'. The base case is what stops the recursive function from running infinitely.
+        If this is your first time seeing a recursive function, this may be a bit hard to wrap your head around. Don't worry; this is more illustrative than
+        anything. Instead of continuing with this example, I will move to constructing a more simple example to establish some baseline understanding.
+    </p>
+    <br>
+    <p>
+        Aside: The Fibonacci example is admittedly a bit trite. If you'd like to explore recursion more in <i>early</i> mathematics with a lesser-used example, I recommend 
+        checking out the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a>. This is one of the earliest known examples of recursive
+        thinking in mathematics.
+    </p>
+    <br>
+    <p>
+        Lets now move away from mathematics and focus on a simple example of recursion to really pin down what it is and how to create a recursive function.
+        At the end of the day, recursion really requires two things: a call to itself and a base case to break itself from its infinite loop. A good way to start
+        learning this concept is to take a simple <i>iterative</i> function and instead make it recursive. Lets take the following function:
+        <div class="codeContainer">
+<pre>
+static string iterativeCounter(int n)
+{
+    for (int i = n; i &#60= 100; i++)
+    {
+        Console.WriteLine(i);
+    }
+    return "We made it!";
+}
+</pre>
+        </div>
+        Simple enough, right? The function will take in an integer between 0-100 (I did not enforce this rule in the code, as it's meant to be a basic example) and
+        write to the console the value of i. Once 100 is reached and written to the console, we return "We made it!". This should be pretty straighforward to see and
+        look an awful lot like most of the loops you encounter day-to-day. So... How do we go about making this function recursive? Lets take a look:
+        <div class="codeContainer">
+<pre>
+static string recursiveCounter(int n)
+{
+    Console.WriteLine(n);
+    if(n == 100)
+    {
+        return "We made it!";
+    }
+    return recursiveCounter(n + 1);
+}
+</pre>
+        </div>
+        So, what did we do here? Since the function is supposed to 'count' up to 100, we know that when n == 100, the function is complete. This is our base case. It
+        bears repeating that a recursive function's base case(s) is/are the cases in which the function has done the work we planned on it doing. This is the case that
+        will break us out of the infinite recursion loop. In the code, this is the simple if statement:
+        <div class="codeContainer">
+<pre>
+if(n == 100) //base case
+{
+    return "We made it!";
+}
+</pre>
+        </div>
+        Further, instead of incrementing an iterator like <span class="inline-code">i</span> in the iterative approach to this counter function, we instead use recursion to perform the 'looping' functionality,
+        passing in <span class="inline-code">n + 1</span>:
+        <div class="codeContainer">
+<pre>
+return recursiveCounter(n + 1);
+</pre>
+        </div> 
+        Popping either of these functions into your IDE will yield the same return. To reiterate, I did not account for input greater than 100; while this may not be too
+        big a deal in the iterative function, an input greater than 100 in the recursive function here will quickly lead to a stack overflow error, as the function will call
+        itself infinitely many times.
+    </p>
+    <br>
+    <p>
+        If we were to look at the call stack (for sake of simplicity, think of the call stack as a stack in the memory of your program that holds all data pertaining to function calls
+        while the program runs) when running the recursive function, we'd see something like this (lets use n = 95 for the sake of this example):
+        <div class="codeContainer">
+<pre>
+recursiveCounter(95)
+    recursiveCounter(96)
+        recursiveCounter(97)
+            recursiveCounter(98)
+                recursiveCounter(99)
+                    recursiveCounter(100)
+                        return "We made it!";
+                    return "We made it!";
+                return "We made it!";
+            return "We made it!";
+        return "We made it!";
+    return "We made it!";
+</pre>
+        </div>
+        At recursiveCounter(100), we hit our base case and return our string "We made it!". This return then propagates through each level of the call stack, 'bubbling up' 
+        our return to the top of the call stack (where the originial call to the recursive function resides). Voila! We've done it. We've converted a simple interative loop
+        to its corresponding recursive definition.
+    </p>
+    <br>
+    <p>
+        So, you might now be asking: what is recursion actually used for? That's a great question. I am absolutely not an authority on the matter, but, in most cases,
+        I would hazard you to <i>avoid</i> using recursion when possible. It's a great problem solving tool, but 99+% of problems that have a recursive solution also have a faster, more efficient solution
+        that doesn't rely on recursion. Recursion is often not recommended because it relies on <i>stack</i> memory instead of <i>heap</i> memory. Without diving into the weeds,
+        stack memory is typically a smaller region of memory than the heap (which is what iterative functions primarily rely on; it is where variables and objects are stored in memory) 
+        and can easily throw a stack overflow error when deep recursive calls are implemented. For problems that require scalability in tandem with iteration, iterative solutions are 
+        almost always the way to go. 
+    </p>
+    <br>
+    <p>
+        With that said, there are definitely some real life applications of recursion. Some of the most common include:
+        <ul>
+            <li>Traversing tree structures</li>
+            <li>Searching graphs</li>
+            <li>Some divide-and-conquer algorithms</li>
+        </ul>
+    </p>
+    If you'd like to see an example problem (albeit a bit of a contrived one -- as are the majority of LeetCode problems) where recursion comes in handy, take one of my favorite LeetCode problems: <a href="https://leetcode.com/problems/generate-parentheses/description/">Generate Parentheses</a>.
+    If you are not familiar with recursion, you may feel a bit stumped on this problem; perhaps unsure where to start. The problem statement is straightforward: given an integer, n, return
+    all possible valid parentheses combinations using n pairs of parentheses. This post is already getting a bit longwinded, so I will leave a recursive solution here for you to chew on:
+    <div class="codeContainer">
+<pre>
+public class Solution {
+    public IList&#60string> GenerateParenthesis(int n) {
+        List&#60string> result = new List&#60string>();
+		Recurse(n, 0, 0, "", result);
+		return result;
+    }
+
+    private void Recurse(int n, int openP, int closedP, string curr, List&#60string> result) {
+        if (openP == closedP && openP == n) {														
+            result.Add(curr);
+            return;
+        }
+
+        if (openP &#60 n) {																			
+            Recurse(n, openP + 1, closedP, curr + "(", result);
+        }
+        if (closedP &#60 openP) {																		
+            Recurse(n, openP, closedP + 1, curr + ")", result);
+        }
+    }
+}
+</pre>
+    </div>
+    <p>
+    If you're struggling to understand what exactly is going on with this solution, remember to look for and
+    identify the two crucial parts of a recursive function: the base case(s) and the actual recursive call. If you'd like a walkthrough of the solution,
+    NeetCode has a great video explanation <a href="https://www.youtube.com/watch?v=s9fokUqJ76A">here</a>.
+    </p>
+    <br>
+    <p>
+        I will leave you all with that. Until next time; happy coding!
+    </p>
+    <br>
+   
+</div>
