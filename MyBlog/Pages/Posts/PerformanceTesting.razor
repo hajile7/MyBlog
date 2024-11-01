@@ -56,7 +56,7 @@
 
     <p>
         This is where it all went wrong. Even in a world where I don't want to deploy this web app and only end up using it myself, that occasional bit of latency
-        was going to drive me crazy. 'Okay,' I thought, 'let's figure this out'. I opened up the old API and came face-to-face with the impetus of my problem.
+        is going to drive me crazy. 'Okay,' I thought, 'let's figure this out'. I opened up the old API and came face-to-face with the impetus of my problem.
         This is what the GET method in question looked like:
     </p>
         <div class="codeContainer">
@@ -145,14 +145,15 @@ List&#60string> randomWords = fisherYatesSort(await dbContext.Words
     <p>
         As you'd imagine, this had very little impact on actual performance, but I was happy to see it run <i>ever so slightly</i> faster. Wait... why
         did I make this an async function? At the time I had written the original project, I had just been introduced to the world of asyncs, and as any
-        excitable developer would've done, I started implementing it all over the place because, surely async is always better, right? Why am I accepting
+        excitable developer would've done, I started implementing it all over the place because, surely async is always better, right? Alsom, why am I accepting
         a character range for my output instead of enforcing an exact character count? 
     </p>
     <br>
     <p>
         As I continued to make minor adjustments to logic inside the method, I noticed that, whenever spinning up the API, the first run would always be much
-        slower than subsequent runs. Further, there was decent variation in runtimes. I quickly realized that testing in this manner simply won't do. There was
-        too much variation. It was inefficient and I was wasting my time. I still strongly desired making this endpoint function with as little latency as possible,
+        slower than subsequent runs. Further, there was decent variation in runtimes. This first run being slow can be easily expalined away by, but the variation in later runs was unacceptable for testing. 
+        I quickly realized that testing in this manner simply won't do. There was
+        too much variation. It was inefficient and I was wasting my time. I still strongly desired making this endpoint have as little latency as possible,
         so I started doing my research into performance testing web APIs. After some time, I came across the aforementioned <a href="https://grafana.com/docs/k6/latest/">k6 documentation</a>.
     </p>
     <br>
@@ -233,8 +234,8 @@ export function handleSummary(data) {
         Remember when I mentioned I had implemented this as an async method just... because I could? Well, with the power of my newfound load-testing ability, I quickly noticed
         that switching back to a synchronous version of the method was always quicker. Some superficial research into <i>why</i> that was the case led me to the conclusion that
         asyncs are often best used in cases where requests are waiting on I/O responses or when there are multiple endpoints involved. As the rewrite continues to grow, I plan
-        on running various tests to infer when async is best used, as I would really love to increase my understanding of the topic. I find async a bit tricky to wrap my head around
-        in terms of approapriate use cases and best practices. Let's get back to where I was headed.
+        on running various tests to infer when async is best used, as I would really love to deepen my understanding of the topic. I find async a bit tricky to wrap my head around
+        in terms of approapriate use cases and best practices. Anyways, let's get back to where I was headed.
     </p>
     <br>
     <p>
@@ -251,7 +252,7 @@ export function handleSummary(data) {
     </p>
     <br>
     <p>
-        Instead of calling the database for the list of words each time a user completes a test and needs a new random list, we instead call the database once and store
+        Instead of calling the database for the list of words each time a user completes a test and needs a new random list, what if we instead call the database once and store
         it somewhere for subsequent uses? I present to you the wordCacheService, a singleton service which will accomplish exactly that:
     </p>
     <div class="codeContainer">
@@ -445,7 +446,7 @@ http_req_failed.....: 0.00%  ✓ 0          ✗ 316166
         You'll notice here that the method not taking advantage of in-memory caching starts to fall apart when handling relatively heavy load for more than just a minute or two.
         Not only do some of the requests outright fail, but the average response time has skyrocketed. On the contrary, the implementation using in memory-caching
         had a 100% success rate and a negligible increase in latency, still sitting at an incredibly quick 1.03ms. Isn't that something? At this point, to get a fuller picture, I plan to run some 'soak' tests,
-        which are tests that run for a much longer time under load, though I will likely decrease concurrency to something lower, somewhere in the ballpark of 500-1000
+        which are tests that run for a much longer time under load, though I will likely decrease concurrency to something lower, somewhere in the ballpark of 500 - 1000
         VUs.
     </p>
     <br>
@@ -458,7 +459,7 @@ http_req_failed.....: 0.00%  ✓ 0          ✗ 316166
     </p>
     <br>
     <p>
-        I will leave you all with this, happy coding!
+        I will leave you all with this; happy coding!
     </p>
     <br>
 
