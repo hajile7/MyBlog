@@ -1,0 +1,465 @@
+@page "/Performance-Testing"
+
+<PageTitle>API Performance Testing</PageTitle>
+
+<div class="myHeaders">
+    <h3>Web API Performance Testing</h3>
+    <p>Nov. 1, 2024</p>
+</div>
+
+<hr>
+
+<div>
+    <p>
+        The last few days I found myself falling down a rabbit hole I didn't expect to find myself in. What started as
+        an innocent desire to optimize a simple HttpGet method quickly spiraled into something totally different... before I knew it,
+        I found myself reading <a href="https://grafana.com/docs/k6/latest/">Grafana k6</a> documentation, wondering how
+        the hell I went from using <span class="inline-code">Stopwatch</span> to scripting load tests in JavaScript. By the
+        time I realized I'd spent two full days immersed in a world I hardly even knew existed the week prior, I was too far gone. I
+        had finally found a way to test API performance in a meaningful manner and the two brain cells that showed up to work that day
+        were buzzing with excitement. I mean, do I <i>really</i> care if this API is going to experience any sort of meaningful load? The
+        answer is no. What I really care about is that I can learn how to make things <i>faster.</i>
+    </p>
+    <br>
+    <p>
+        While I would love to drone on about how optimizing performance tickles some strange part of my brain, I think we
+        should instead take a step back and see what led me here in the first place. I briefly mentioned in a previous post
+        that I had been (and still am) learning Blazor with the eventual intention of rewriting the front end of a full stack app I made 
+        some time ago. The application in question is a typing trainer (largely inspired by <a href="https://monkeytype.com/">monkeytype</a>) that 
+        offers users very granular feedback on their typing mannerisms. I'll spare you all the details for now, but do know I plan on deploying this
+        rewrite once finished (that project walked so this rewrite could run). That rewrite started about a week ago and warrants an entire post of
+        its own. Perhaps if I hadn't been spending so much time learning about some of the slightly more nuanced facets of Blazor, I 
+        would've already posted about it. Moving on.
+    </p>
+    <br>
+    <p>
+        During the process of overcoming a pretty nasty blocker in the Blazor rewrite, I inevitably found myself reading a lot of my old code. 
+        At the time, I was planning to use the same API and database with the new Blazor front end. The old project, TyperV1, had been a month's 
+        worth of work. It wasn't, however, a project I would work on a little here and a little there. It was a project I worked on relentlessly, 
+        often clocking in well over 40 hours a week between writing code, reading documentation, and debugging. Being largely self taught, I had taken
+        on this project not only because I had a vested interest in the product (I quite enjoy typing!), but because I knew it was ambitious and would necessitate
+        learning many things along the way. And it really did. Regardless of that fact, reading my old code was a bit painful. I was
+        constantly asking myself <i>what was I thinking</i> or <i>why did I make this so complicated?</i>
+    </p>
+    <br>
+    <p>
+        I have a lot of things to say about this process of rewriting something of your own that includes some degree of complexity, but I'll save those thoughts 
+        for another post. Getting back to the topic at hand, let me tell you where this process led me. When I finally finished up this particularly 
+        difficult part of the rewrite, I realized that if my code on the Angular side included this much unnecessary complexity, the backend likely isn't much better. 
+        That's when I remembered -- one of my bigger issues with TyperV1 (and a large reason why I didn't end up deploying it) was that the GET call to grab
+        a user's test instance was <i>sometimes</i> a bit slow. And I mean that literally; normally the request was very quick and there was seemingly very little 
+        latency between two test instances (meaning when a user was done with their typing test, the next one popped up on the page almost immediately). Sometimes, though,
+        I had noticed it might take a full second. Maybe even two or three.
+    </p>
+
+    <br>
+
+    <p>
+        This is where it all went wrong. Even in a world where I don't want to deploy this web app and only end up using it myself, that occasional bit of latency
+        was going to drive me crazy. 'Okay,' I thought, 'let's figure this out'. I opened up the old API and came face-to-face with the impetus of my problem.
+        This is what the GET method in question looked like:
+    </p>
+        <div class="codeContainer">
+<pre>
+    
+public async Task&#60;IActionResult> getRandomWords()
+{
+    int minChars = 142;
+    int maxChars = 144;
+    int totalCharCount = 0;
+
+    Random random = new Random();
+
+    List&#60;string> selectedWords = new List&#60;string>();
+
+    List&#60;Word> words = await dbContext.Words.ToListAsync();
+
+    List&#60;Word> randomWords = words.OrderBy(w => random.Next()).ToList();
+
+    foreach (Word word in randomWords)
+    {
+        totalCharCount += word.Length;
+        if (totalCharCount > maxChars)
+        {
+
+            break;
+        }
+
+        selectedWords.Add(word.Word1);
+
+        if (totalCharCount >= minChars && totalCharCount &#60;= maxChars)
+        {
+            break;
+        }
+    }
+
+    return Ok(selectedWords);
+
+}
+</pre>
+        </div> 
+    <p>
+        Hmm... okay. Rather ugly, I thought, immediately noticing quite a few decisions I did not at all agree with. Naively I thought maybe implementing
+        some cleaner logic would do the trick. I went ahead and broke out my handy dandy performance timer class, which I'm sure many of you are familiar with
+        (or some very similar implementation):
+    </p>
+    <div class="codeContainer">
+<pre>
+public class PerformanceTimer : IDisposable
+{
+    private readonly Stopwatch stopWatch;
+    private readonly string funcName;
+
+    public PerformanceTimer(string actionName)
+    {
+        funcName = actionName;
+        stopWatch = Stopwatch.StartNew();
+        Console.WriteLine($"Starting: {funcName}");
+    }
+
+    public void Stop()
+    {
+        stopWatch.Stop();
+        Console.WriteLine($"Completed: {funcName} in {stopWatch.ElapsedMilliseconds} ms");
+    }
+
+    public void Dispose()
+    {
+        Stop();
+    }
+}
+</pre>
+    </div>
+    <p>
+        I immediately figured I may as well ditch the use of the Random class -- why not just 
+        <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher-Yates</a> the list? Also, why was I grabbing the whole word
+        object from my database? I decided to take care of that here as well with a simple <span class="inline-code">Select</span> statement:
+    </p>
+    <div class="codeContainer">
+<pre>
+List&#60string> randomWords = fisherYatesSort(await dbContext.Words
+    .Select(w => w.Word1)
+    .ToListAsync());
+</pre>
+    </div>
+    <p>
+        As you'd imagine, this had very little impact on actual performance, but I was happy to see it run <i>ever so slightly</i> faster. Wait... why
+        did I make this an async function? At the time I had written the original project, I had just been introduced to the world of asyncs, and as any
+        excitable developer would've done, I started implementing it all over the place because, surely async is always better, right? Why am I accepting
+        a character range for my output instead of enforcing an exact character count? 
+    </p>
+    <br>
+    <p>
+        As I continued to make minor adjustments to logic inside the method, I noticed that, whenever spinning up the API, the first run would always be much
+        slower than subsequent runs. Further, there was decent variation in runtimes. I quickly realized that testing in this manner simply won't do. There was
+        too much variation. It was inefficient and I was wasting my time. I still strongly desired making this endpoint function with as little latency as possible,
+        so I started doing my research into performance testing web APIs. After some time, I came across the aforementioned <a href="https://grafana.com/docs/k6/latest/">k6 documentation</a>.
+    </p>
+    <br>
+    <p>
+        After some initial reading, I opened up the fork of the old API I was working in, opened Bash, and installed k6. Here we go. I spent a good portion of the day reading through their 
+        documentation, learning how to write testing scripts, and trying to understand the different types of performance tests and what it was I was really looking for.
+        For sake of brevity, I will simply share the script I eventually landed on:
+        <div class="codeContainer">
+<pre>
+import http from 'k6/http';
+import { sleep } from 'k6';
+import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.2/index.js';
+
+export const options = {
+    stages: [
+        { duration: '30s', target: 100 },
+        { duration: '1m', target: 100 },
+        { duration: '30s', target: 0 },
+    ],
+};
+
+export default function () {
+    const url = '&#60;endpoint url here>';
+    let res = http.get(url);
+
+    if (res.status !== 200) {
+        console.error(`Request failed with status: ${res.status}`);
+    }
+
+    sleep(5);
+}
+
+export function handleSummary(data) {
+    delete data.metrics['http_req_duration{expected_response:true}'];
+    delete data.metrics['http_req_waiting'];
+    delete data.metrics['http_req_blocked'];
+    delete data.metrics['http_req_connecting'];
+    delete data.metrics['http_req_receiving'];
+    delete data.metrics['http_req_sending'];
+    delete data.metrics['http_req_tls_handshaking'];
+
+    for (const key in data.metrics) {
+        if (key.startsWith('iteration')) delete data.metrics[key];
+    }
+
+    for (const key in data.metrics) {
+        if (key.startsWith('vu')) delete data.metrics[key];
+    }
+
+    for (const key in data.metrics) {
+        if (key.startsWith('data')) delete data.metrics[key];
+    }
+
+    return {
+        stdout: textSummary(data, { indent: '→', enableColors: true }),
+    };
+}
+</pre>
+        </div>
+    </p>
+    <p>
+        A good portion of the script is just extracting the information I wanted from the <span class="inline-code">data</span> object the test returns after
+        completion. Really, the most important part here is the <span class="inline-code">stages</span> object within the <span class="inline-code">options</span> object. In this script 
+        (and all k6 scripts), <span class="inline-code">stages</span> defines the activity of virtual users (VUs). Here, we're simulating a scenario in which during the
+        first 30 seconds of the test we ramp up to 100 users, sustain those 100 users for a full minute, and then ramp back down to 0 users in the last 30 seconds. The
+        other important thing to mention here is the <span class="inline-code">sleep(5)</span> method, which defines how frequently each user sends an HTTP request to 
+        the endpoint being tested. In our case, the virtual users will each be sending a request every 5 seconds.
+    </p>
+    <br>
+    <p>
+        Despite being a bit tired from all the reading I had done to get to this point, I was amped beyond words to be able to test my code in such a way. Going out and reading 
+        various resources, watching tutorials, and testing things manually as I had been doing is one thing, but being able to tinker with 
+        code and run realistic load tests to see how your code changes affect the outcome is on an entirely different level. I was enamored with this newfound power. I copied
+        this script over to a couple more files, changing nothing but the amount of VUs (I added tests simulating 1000, 2500, and 5000 VUs) and got to totally overhauling my method.
+    </p>
+    <br>
+    <p>
+        Remember when I mentioned I had implemented this as an async method just... because I could? Well, with the power of my newfound load-testing ability, I quickly noticed
+        that switching back to a synchronous version of the method was always quicker. Some superficial research into <i>why</i> that was the case led me to the conclusion that
+        asyncs are often best used in cases where requests are waiting on I/O responses or when there are multiple endpoints involved. As the rewrite continues to grow, I plan
+        on running various tests to infer when async is best used, as I would really love to increase my understanding of the topic. I find async a bit tricky to wrap my head around
+        in terms of approapriate use cases and best practices. Let's get back to where I was headed.
+    </p>
+    <br>
+    <p>
+        At this point, I was back to running a synchronous version of the method that, when called, grabbed the entire list of words from my database, randomized the list
+        via Fisher-Yates, and added words to the output list until they were within the range I had defined. Well... that's a lot of database calls, I had been thinking
+        to myself, not sure how to remedy the issue of calling the database and doing all this work every time a user finishes their typing test instance. Surely, I thought, 
+        there must exist a way to simplify this. Queue more Googling, more research, and more reading.
+    </p>
+    <br>
+    <p>
+        Thus far, I had already considered this week a huge win. I got over the blocker that was preventing this rewrite from getting rolling in the first place, created 
+        and optimized my new database (also a process worthy of its own post), and began working on the new API. How could it get any better? Well, lucky for me, I was about 
+        to stumble upon the beauty of in-memory caching.
+    </p>
+    <br>
+    <p>
+        Instead of calling the database for the list of words each time a user completes a test and needs a new random list, we instead call the database once and store
+        it somewhere for subsequent uses? I present to you the wordCacheService, a singleton service which will accomplish exactly that:
+    </p>
+    <div class="codeContainer">
+<pre>
+    public class WordCacheService
+    {
+        private readonly List&#60;string> cachedWords = [];
+        private readonly object _lock = new();
+        private static readonly Random _rng = new();
+
+        public WordCacheService() 
+        {
+            cachedWords = [];
+        }
+
+        public async Task LoadWordsAsync(TypicalTypistDbContext dbContext)
+        {
+
+            lock (_lock)
+            {
+                if (cachedWords.Count != 0) return;
+            }
+
+            var words = await dbContext.Words
+                .Select(w => w.Word1)
+                .ToListAsync();
+
+            lock (_lock)
+            {
+                cachedWords.AddRange(words);
+            }
+
+        }
+
+        public List&#60;string> GetRandomWords(int count)
+        {
+            lock ( _lock)
+            {
+                var wordsCopy = cachedWords.ToList();
+                for(int i = wordsCopy.Count - 1; i > 0; i--)
+                {
+                    int j = _rng.Next(i + 1);
+                    (wordsCopy[i], wordsCopy[j]) = (wordsCopy[j], wordsCopy[i]);
+                }
+
+                return wordsCopy.Take(count).ToList();
+
+            }
+        }
+
+    }
+</pre>
+    </div>
+    <p>
+        Now, there's a lot going on here. Normally, I would dive into explaining how the service works (I mean, if you haven't seen it before, what in the world
+        is <span class="inline-code">lock</span>?), but this post is shaping up to be quite large already. If you've made it this far... thanks! I'm glad you've 
+        found the content interesting enough to keep reading. In short, the service will grab our word list from the database on program start up and hold onto it 
+        for easy access throughout the program's duration. This will eliminate a very substantial number of database calls while someone is using the app.
+        The <span class="inline-code">lock</span> related code ensures we don't encounter things like <a href="https://en.wikipedia.org/wiki/Race_condition">race conditions</a>
+        or data corruption in cases where multiple threads would otherwise be accessing the locked code.
+    </p>
+    <br>
+    <p>
+        The only other thing we need to accomplish our in-memory caching is to actually run <span class="inline-code">LoadWordsAsync</span> on startup. To do this, we 
+        head to our program.cs file and add the service to our DI container along with a scoped service to access our database context:
+    </p>
+    <div class="codeContainer">
+<pre>
+builder.Services.AddDbContext&#60;TypicalTypistDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString(TypicalTypistAPI.&#60;Url here>)));
+
+builder.Services.AddSingleton&#60;WordCacheService>();
+</pre>
+    </div>
+    <p>
+        We then include the code to actually load the wordCacheService on startup after the services have been built:
+    </p>
+        <div class="codeContainer">
+<pre>
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService&#60;TypicalTypistDbContext>();
+    var wordCache = scope.ServiceProvider.GetRequiredService&#60;WordCacheService>();
+    await wordCache.LoadWordsAsync(dbContext);
+}
+</pre>
+        </div>
+    <p>
+        Since we're outside of a web request, we place the code within a using block and create our own scope. This way, we 'respect' the scoped lifetime
+        of the DbContext service and dispose of it once we're done with it. This avoids potential errors like memory leaks or data corruption. It should go
+        without saying, but always follow this practice. As I always try to mention, I'm no expert. But really, always handle scoped services as intended, as
+        not doing so opens up potential security issues.
+    </p>
+    <br>
+    <p>
+        We're nearing the end of this unexpected journey into performance testing. At this point, the method that started it all is now looking something
+        like this:
+    </p>
+    <div class="codeContainer">
+<pre>
+public IActionResult getRandomWords()
+{
+    int desiredChars = 144;
+    int totalCharCount = 0;
+    List&#60;string> selectedWords = [];
+
+    var randomWords = wordCacheService.GetRandomWords(200);
+
+    foreach (string word in randomWords)
+    {
+        string workingWord = word + "1";
+        if(totalCharCount + workingWord.Length &#60;= desiredChars)
+        {
+            totalCharCount += workingWord.Length;
+            selectedWords.AddRange(workingWord.Select(c => c.ToString()));
+        }
+
+        if (totalCharCount == desiredChars || totalCharCount >= 142)
+        {
+            break;
+        }
+    }
+
+    return Ok(convertToWordTestObjects(selectedWords));
+
+}
+</pre>
+    </div>
+    <p>
+        I plan to further refine this method, as it forms the basis of all GET calls related to getting new test instances. Namely, I'm going to figure out a way
+        to reliably send an exact character count to the front end. I had initially planned on solving this problem before writing this post, but dealing with
+        randomness makes the issue a bit more nuanced due to edge cases and I did not want to wait any longer to get this post up, seeing as I spent large swathes of 
+        this week reading documentation and learning about things I was not yet familiar with. Anyways, let's wrap up here with some test results. I will be comparing 
+        the above method to its counterpart which does not include using in-memory caching, but instead uses a database call to grab the randomWords list. Just for reference, here it is again:
+    </p>
+    <div class="codeContainer">
+<pre>
+List&#60;string> randomWords = fisherYatesSort(dbContext.Words
+        .Select(w => w.Word1)
+        .ToList());
+</pre>
+    </div>
+    <p>
+        The following results are from a test using the script I mentioned earlier in this post. The primary difference being that instead of 100 VUs, this
+        test was run with 2500 VUs. Here are the results without using the in-memory caching:
+    </p>
+    <div class="terminalContainer">
+<pre>
+avg=3.39ms min=502.6µs med=2.01ms max=5.01s p(90)=3.7ms p(95)=4.31ms
+http_req_failed.....: 0.00% ✓ 0          ✗ 46215 
+</pre>
+    </div>
+    <p>
+        And here are the results while instead using the in-memory caching:
+    </p>
+    <div class="terminalContainer">
+<pre>
+avg=753.78µs min=0s med=703.8µs max=20.93ms p(90)=1.09ms p(95)=1.32ms
+http_req_failed.....: 0.00% ✓ 0          ✗ 46238
+</pre>
+    </div>
+    <p>
+        In these results, <span class="inline-terminal">avg</span> represents the average time the request is completed across the entire batch. <span class="inline-terminal">Min</span> is the quickest request that occurred in the batch,
+        <span class="inline-terminal">med</span> is the median time of the batch, <span class="inline-terminal">max</span> is the longest request that occurred in the batch, and <span class="inline-terminal">p(90)</span> & <span class="inline-terminal">p(95)</span> represent percentiles; ergo, 90% of users in the 
+        no in-memory caching test experienced 3.7ms of latency or less, whereas 90% of users in the in-memory caching test experienced only 1.09ms of delay or less. Lastly,
+        the <span class="inline-terminal">http_req_failed</span> represents the percentage of requests that failed (the number near the checkmark represents the number of failed requests and the number
+        near the 'x' represents the number of requests that succeeded. I know -- a bit weird.). For these tests, all of the calls were completed successfully.
+    </p>
+    <br>
+    <p>
+        Some quick math tells us that, while under these conditions, using the in-cache memory strategy is a whopping 4.5x faster. I ran many other tests that 
+        corroborated this find. What I found to be more interesting, however, were the results from running this same test for ten minutes under load instead of just one.
+        Here are those results, in the same order as before:
+    </p>
+    <div class="terminalContainer">
+<pre>
+avg=161.52ms min=502.49µs med=4.98ms max=38.49s p(90)=611.21ms p(95)=905.83ms
+http_req_failed.....: 0.99%  ✓ 3051       ✗ 303311
+</pre>
+    </div>
+    <p>
+        And instead using in-memory caching:
+    </p>
+    <div class="terminalContainer">
+<pre>
+avg=1.03ms min=0s med=1.03ms max=82.71ms p(90)=1.58ms p(95)=1.73ms
+http_req_failed.....: 0.00%  ✓ 0          ✗ 316166
+</pre>
+    </div>
+    <p>
+        You'll notice here that the method not taking advantage of in-memory caching starts to fall apart when handling relatively heavy load for more than just a minute or two.
+        Not only do some of the requests outright fail, but the average response time has skyrocketed. On the contrary, the implementation using in memory-caching
+        had a 100% success rate and a negligible increase in latency, still sitting at an incredibly quick 1.03ms. Isn't that something? At this point, to get a fuller picture, I plan to run some 'soak' tests,
+        which are tests that run for a much longer time under load, though I will likely decrease concurrency to something lower, somewhere in the ballpark of 500-1000
+        VUs.
+    </p>
+    <br>
+    <p>
+        If you've made it this far, you are an absolute trooper. I appreciate you for taking the time out of your day to relive my journey down the rabbit hole
+        of web API performance testing. While I feel I've learned so much throughout these last 7 days, I know this is only the tip of the iceberg. I feel
+        much more equipped to now better understand how my decisions in coding will affect performance, which I could not be happier about. It's been a wonderful
+        experience to tinker with code and use these tests to infer what is and isn't performant when creating endpoints. If this stuff sounds at all interesting to you, I
+        would highly recommend checking out <a href="https://grafana.com/docs/k6/latest/">k6</a>.
+    </p>
+    <br>
+    <p>
+        I will leave you all with this, happy coding!
+    </p>
+    <br>
+
+</div>

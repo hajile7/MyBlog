@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bqBRGrdwM0IPIWn34b+a7dpNaZkEehRh9wvO/kIttIU=",
+  "Hash": "gThJJe3m5D/HmxmEzRHp0PQjxc5rSIzpwliaKu+qhUY=",
   "Source": "MyBlog",
   "BasePath": "/",
   "Mode": "Root",
@@ -71,7 +71,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
@@ -90,15 +90,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js.map"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.ky0au8keou.js",
+      "RelativePath": "_framework/dotnet.native.8.0.10.dttvpwtuld.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.1xntewaa5z.js",
+      "RelativePath": "_framework/dotnet.runtime.8.0.10.39apnb5yx8.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +147,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
@@ -166,7 +166,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
@@ -185,7 +185,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
@@ -204,7 +204,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
@@ -223,7 +223,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm",
@@ -4102,25 +4102,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Diagnostics.Process.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\1xntewaa5z.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.1xntewaa5z.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\22xpt48fy5.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -4195,6 +4176,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Security.Cryptography.OpenSsl.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\39apnb5yx8.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.8.0.10.39apnb5yx8.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\3pa3fzvf2f.gz",
@@ -4311,25 +4311,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\4pjghfhxl5.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\4sfe5sn167.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -4385,25 +4366,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Diagnostics.Contracts.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\5ugi3f7gi7.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\65mr6yykpd.gz",
@@ -4748,6 +4710,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Private.Uri.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\8jqm1bzm7c.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\8n7mampvsu.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -4803,25 +4784,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\8ze6ughh3e.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\91l068cohd.gz",
@@ -5204,6 +5166,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Threading.ThreadPool.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\d3b5uaod4t.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\dcwt29qggp.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -5259,6 +5240,44 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.FileSystem.Watcher.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\dttvpwtuld.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.8.0.10.dttvpwtuld.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\e9fk0wvknf.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\edztl3fm1n.gz",
@@ -5451,25 +5470,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Diagnostics.Tracing.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\gkigijs5wv.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\glyf49qiod.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -5525,6 +5525,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Extensions.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\gsqam1bzs6.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\h189gsx76h.gz",
@@ -6021,25 +6040,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Primitives.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\ky0au8keou.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.ky0au8keou.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\l03mv353n8.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -6285,25 +6285,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Text.RegularExpressions.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\ml1y5nt4g8.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\mrjf00m0hw.gz",
@@ -6591,6 +6572,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.Ping.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\q4f82dkrg3.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\q5ubemuqib.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -6608,6 +6608,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Transactions.Local.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\qc5pkvggmj.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\qcxhc5dmee.gz",
@@ -6779,25 +6798,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Collections.NonGeneric.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\rckl9da07a.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\rtc265itzn.gz",
@@ -7484,25 +7484,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.Mail.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\xflkvy7d6j.gz",
-      "SourceId": "MyBlog",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\xidu20y10n.gz",
       "SourceId": "MyBlog",
       "SourceType": "Computed",
@@ -7634,6 +7615,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\yrpojpvlag.gz",
+      "SourceId": "MyBlog",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\Blog\\MyBlog\\obj\\Debug\\net8.0\\compressed\\z097yzeyyo.gz",

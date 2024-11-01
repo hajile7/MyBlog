@@ -139,11 +139,36 @@ li {
     color: #c02d76;
 }
 
+.terminalContainer {
+    margin: 1.5rem;
+    padding: 2%;
+    border: inset;
+    background-color: black;
+    box-sizing: border-box;
+}
+
+.terminalContainer pre {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    font-family: monospace;
+    color: white;
+}
+
 .inline-code {
     background-color: rgb(190, 190, 190);
     padding: .05%;
     font-family: monospace;
     color: #c02d76;
+    font-size: 14px;
+}
+
+.inline-terminal {
+    background-color: black;
+    padding: .05%;
+    font-family: monospace;
+    color: white;
+    font-size: 14px;
 }
 
 @media (max-width: 640.98px) {
