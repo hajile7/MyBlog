@@ -145,8 +145,8 @@ List&#60string> randomWords = fisherYatesSort(await dbContext.Words
     <p>
         As you'd imagine, this had very little impact on actual performance, but I was happy to see it run <i>ever so slightly</i> faster. Wait... why
         did I make this an async function? At the time I had written the original project, I had just been introduced to the world of asyncs, and as any
-        excitable developer would've done, I started implementing it all over the place because, surely async is always better, right? Alsom, why am I accepting
-        a character range for my output instead of enforcing an exact character count? 
+        excitable developer would've done, I started implementing it all over the place because, surely async is always better, right? Also, why am I accepting
+        a character range for my output instead of enforcing an exact character count?
     </p>
     <br>
     <p>
@@ -363,7 +363,7 @@ public IActionResult getRandomWords()
 
     foreach (string word in randomWords)
     {
-        string workingWord = word + "1";
+        string workingWord = word + " ";
         if(totalCharCount + workingWord.Length &#60;= desiredChars)
         {
             totalCharCount += workingWord.Length;
@@ -446,7 +446,7 @@ http_req_failed.....: 0.00%  ✓ 0          ✗ 316166
         You'll notice here that the method not taking advantage of in-memory caching starts to fall apart when handling relatively heavy load for more than just a minute or two.
         Not only do some of the requests outright fail, but the average response time has skyrocketed. On the contrary, the implementation using in memory-caching
         had a 100% success rate and a negligible increase in latency, still sitting at an incredibly quick 1.03ms. Isn't that something? At this point, to get a fuller picture, I plan to run some 'soak' tests,
-        which are tests that run for a much longer time under load, though I will likely decrease concurrency to something lower, somewhere in the ballpark of 500 - 1000
+        which are tests that run for a much longer time under load, though I will likely decrease concurrency to something lower, somewhere in the ballpark of 500 -- 1000
         VUs.
     </p>
     <br>
